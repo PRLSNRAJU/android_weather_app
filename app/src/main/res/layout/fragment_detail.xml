@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.prlsnraju.weatherapp.detailView.DetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="24dp">
+
+        <TextView
+            android:id="@+id/dateTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{viewModel.dateTime}"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="date" />
+
+        <TextView
+            android:id="@+id/city_country"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{viewModel.city_country}"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dateTime"
+            tools:text="country" />
+
+        <ImageView
+            android:id="@+id/image"
+            loadImage="@{viewModel.imageUrl}"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/city_country"
+            app:srcCompat="@drawable/ic_launcher_foreground" />
+
+        <TextView
+            android:id="@+id/temp"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="@{viewModel.temp}"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toRightOf="@id/image"
+            app:layout_constraintTop_toBottomOf="@+id/city_country"
+            tools:text="temperature" />
+
+        <TextView
+            android:id="@+id/warning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{viewModel.warning}"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image"
+            tools:text="warning" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{viewModel.description}"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/warning"
+            tools:text="description" />
+
+        <TextView
+            android:id="@+id/wind"
+            android:layout_width="174dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:text="@{viewModel.wind}"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description"
+            tools:text="wind" />
+
+        <TextView
+            android:id="@+id/humidity"
+            android:layout_width="125dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:text="@{viewModel.humidity}"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/wind"
+            tools:text="humidity" />
+
+        <TextView
+            android:id="@+id/dew_point"
+            android:layout_width="205dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{viewModel.dew_point}"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/humidity"
+            tools:text="dew point" />
+
+        <TextView
+            android:id="@+id/pressure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{viewModel.pressure}"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/wind"
+            app:layout_constraintTop_toTopOf="@+id/wind"
+            tools:text="Hi Pressure" />
+
+        <TextView
+            android:id="@+id/uv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="164dp"
+            android:text="@{viewModel.uv}"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/humidity"
+            app:layout_constraintTop_toBottomOf="@+id/pressure"
+            tools:text="uv" />
+
+        <TextView
+            android:id="@+id/visibility"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:text="@{viewModel.visibility}"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/dew_point"
+            app:layout_constraintTop_toBottomOf="@+id/uv"
+            tools:text="visibility" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
